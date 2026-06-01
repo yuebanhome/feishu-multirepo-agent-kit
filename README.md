@@ -10,12 +10,17 @@
 - workspace 初始化器负责接入每个人本地的六仓库、飞书 CLI、CodeGraph。
 - hook 做硬约束：没有 claim 不能写代码；任务被真人领取不能写；写完要回写 evidence。
 
+## 仓库地址
+
+- GitHub: <https://github.com/yuebanhome/feishu-multirepo-agent-kit>
+- Clone: `git@github.com:yuebanhome/feishu-multirepo-agent-kit.git` 或 `https://github.com/yuebanhome/feishu-multirepo-agent-kit.git`
+
 ## 安装方式
 
 ### 本地测试安装
 
 ```bash
-git clone <your-repo-url> feishu-multirepo-agent-kit
+git clone https://github.com/yuebanhome/feishu-multirepo-agent-kit.git
 cd feishu-multirepo-agent-kit
 ./install.sh --workspace ~/dev/product-x --scope user
 ```
@@ -26,12 +31,12 @@ cd feishu-multirepo-agent-kit
 2. 安装 `feishu-multirepo` 插件。
 3. 在 workspace 根目录生成 `.aiops.json`、`.aiops/`、`CLAUDE.md`。
 
-### 团队安装
+### 团队安装（推荐）
 
-发布到 GitHub 后，别人可以执行：
+直接从 GitHub 注册 marketplace 并安装插件：
 
 ```bash
-claude plugin marketplace add your-org/feishu-multirepo-agent-kit
+claude plugin marketplace add yuebanhome/feishu-multirepo-agent-kit
 claude plugin install feishu-multirepo@aiops-agent-kit --scope user
 ```
 

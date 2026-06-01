@@ -8,3 +8,4 @@
 - Product/CTO/CodeGraph/Planner/Repo/Reviewer/QA/Release agents.
 - PRD → design → taskpool → claim → build → review → release skills.
 - Claude Code hooks for claim/path/preflight/evidence gates.
+- Published to GitHub: <https://github.com/yuebanhome/feishu-multirepo-agent-kit>.

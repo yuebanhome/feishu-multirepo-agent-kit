@@ -4,8 +4,11 @@
   "version": "0.1.0",
   "description": "Feishu-first multi-repo Claude Code workflow with Product/CTO agents, task pool planning, CodeGraph gates, and deterministic hooks.",
   "author": {
-    "name": "AI Ops Team"
+    "name": "yuebanhome",
+    "url": "https://github.com/yuebanhome"
   },
+  "homepage": "https://github.com/yuebanhome/feishu-multirepo-agent-kit",
+  "repository": "https://github.com/yuebanhome/feishu-multirepo-agent-kit",
   "license": "MIT",
   "keywords": [
     "claude-code",
