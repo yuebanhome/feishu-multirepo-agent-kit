@@ -1,0 +1,22 @@
+{
+  "name": "feishu-multirepo",
+  "displayName": "Feishu Multi-Repo Agent Team",
+  "version": "0.1.0",
+  "description": "Feishu-first multi-repo Claude Code workflow with Product/CTO agents, task pool planning, CodeGraph gates, and deterministic hooks.",
+  "author": {
+    "name": "AI Ops Team"
+  },
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "feishu",
+    "multi-repo",
+    "codegraph",
+    "agents",
+    "hooks",
+    "workflow"
+  ],
+  "skills": "./skills/",
+  "agents": "./agents/",
+  "hooks": "./hooks/hooks.json"
+}

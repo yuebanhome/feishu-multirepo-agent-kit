@@ -1,0 +1,10 @@
+~/dev/product-x/
+  .aiops.json
+  .aiops/state/tasks.json
+  CLAUDE.md
+  repo-a/
+  repo-b/
+  repo-c/
+  repo-d/
+  repo-e/
+  repo-f/

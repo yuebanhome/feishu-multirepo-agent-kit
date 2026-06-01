@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "workspace_name": "product-x",
+  "feishu": {
+    "adapter_command": [
+      "python3",
+      "${CLAUDE_PLUGIN_ROOT}/scripts/demo_feishu_adapter.py"
+    ],
+    "prd_doc_id": "PRD-2026-001",
+    "task_base_id": "TASKPOOL-001"
+  },
+  "policy": {
+    "require_claim_for_edits": true,
+    "require_codegraph_preflight": true,
+    "require_allowed_paths": true,
+    "block_human_owned_tasks": true,
+    "stop_requires_evidence": true,
+    "stop_requires_pr_url_when_dirty": false,
+    "agent_owner_prefix": "agent:"
+  },
+  "codegraph": {
+    "enabled": true,
+    "required_for_existing_repos": true,
+    "init_empty_repos": false
+  },
+  "repos": [
+    {
+      "name": "repo-a",
+      "path": "repo-a",
+      "status": "existing",
+      "role": "backend-core",
+      "participates": true,
+      "verification": [
+        "pnpm test",
+        "pnpm typecheck"
+      ]
+    },
+    {
+      "name": "repo-b",
+      "path": "repo-b",
+      "status": "existing",
+      "role": "frontend-web",
+      "participates": true,
+      "verification": [
+        "pnpm test",
+        "pnpm lint"
+      ]
+    },
+    {
+      "name": "repo-c",
+      "path": "repo-c",
+      "status": "existing",
+      "role": "shared-sdk-contract",
+      "participates": true,
+      "verification": [
+        "pnpm test"
+      ]
+    },
+    {
+      "name": "repo-d",
+      "path": "repo-d",
+      "status": "existing",
+      "role": "e2e-tests",
+      "participates": true,
+      "verification": [
+        "pnpm test:e2e"
+      ]
+    },
+    {
+      "name": "repo-e",
+      "path": "repo-e",
+      "status": "existing",
+      "role": "unrelated-service",
+      "participates": false
+    },
+    {
+      "name": "repo-f",
+      "path": "repo-f",
+      "status": "empty",
+      "role": "future-service",
+      "participates": false,
+      "bootstrap_required": true
+    }
+  ]
+}

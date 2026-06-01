@@ -1,0 +1,60 @@
+{
+  "tasks": [
+    {
+      "task_id": "PX-123",
+      "prd_id": "PRD-2026-001",
+      "title": "Demo: implement audit entry on order detail page",
+      "type": "frontend",
+      "status": "ready",
+      "priority": "P1",
+      "owner_type": "none",
+      "owner": "",
+      "claim_lock": "",
+      "claim_session": "",
+      "primary_repo": "repo-b",
+      "related_repos": [
+        "repo-a",
+        "repo-c",
+        "repo-d"
+      ],
+      "allowed_paths": [
+        "src/pages/orders/**",
+        "src/components/audit/**",
+        "tests/orders/**"
+      ],
+      "forbidden_paths": [
+        "src/auth/**",
+        "src/payments/**"
+      ],
+      "depends_on": [],
+      "blocks": [],
+      "codegraph_seeds": [
+        "OrderDetailPage",
+        "AuditLogClient",
+        "GET /api/orders/:id"
+      ],
+      "acceptance_criteria": [
+        "Order detail page shows audit entry",
+        "Empty state works",
+        "Retry works on API failure"
+      ],
+      "verification": [
+        "pnpm test order-audit",
+        "pnpm typecheck",
+        "pnpm lint"
+      ],
+      "evidence": "",
+      "pr_url": "",
+      "branch": "feat/PX-123-order-audit-entry",
+      "risk": "medium",
+      "notes": "Demo task created by Feishu Multi-Repo Agent Kit"
+    }
+  ],
+  "prds": [
+    {
+      "prd_id": "PRD-2026-001",
+      "title": "Demo PRD",
+      "body": "Replace this with Feishu PRD content."
+    }
+  ]
+}

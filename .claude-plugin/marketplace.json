@@ -1,0 +1,14 @@
+{
+  "name": "aiops-agent-kit",
+  "owner": {
+    "name": "AI Ops Team"
+  },
+  "plugins": [
+    {
+      "name": "feishu-multirepo",
+      "source": "./plugins/feishu-multirepo",
+      "description": "Feishu-first multi-repo Claude Code workflow with agents, skills, hooks, and CodeGraph gates",
+      "version": "0.1.0"
+    }
+  ]
+}
