@@ -15,6 +15,44 @@
 - GitHub: <https://github.com/yuebanhome/feishu-multirepo-agent-kit>
 - Clone: `git@github.com:yuebanhome/feishu-multirepo-agent-kit.git` 或 `https://github.com/yuebanhome/feishu-multirepo-agent-kit.git`
 
+## 前置依赖
+
+这套工作流依赖两个外部 CLI，建议在安装 plugin 前先准备好。
+
+### 1. Claude Code
+
+参见 <https://docs.claude.com/en/docs/claude-code>。需要能在命令行执行 `claude` 命令。
+
+### 2. 飞书 CLI（larksuite-cli）
+
+用来跑 PRD、任务池、claim、evidence 这条飞书侧的链路。官方安装方式：
+
+```bash
+# 安装 / 升级
+npx @larksuite/cli@latest install
+
+# 登录（首次使用）
+npx @larksuite/cli@latest auth login
+```
+
+安装后命令通常以 `lark-cli` 暴露（或继续用 `npx @larksuite/cli`）。把它包成飞书 adapter，见下面「飞书 Adapter 规范」一节。
+
+> 如果你已经有内部包装好的飞书 CLI（不是 larksuite-cli），直接让它对齐 adapter 接口即可，不强制使用 larksuite-cli。
+
+### 3. CodeGraph
+
+用于代码结构、调用链、影响范围分析；hooks 会在写代码前要求做 preflight。安装：
+
+```bash
+# macOS / Linux
+curl -fsSL https://raw.githubusercontent.com/colbymchenry/codegraph/main/install.sh | sh
+
+# Windows (PowerShell)
+irm https://raw.githubusercontent.com/colbymchenry/codegraph/main/install.ps1 | iex
+```
+
+装完后在每个已有仓库里跑一次 `codegraph init -i`，详情见下方「CodeGraph」一节。
+
 ## 安装方式
 
 ### 本地测试安装
@@ -124,7 +162,9 @@ python3 ~/.claude/plugins/data/<plugin-id>/../scripts/aiops_cli.py init
 
 ## 飞书 Adapter 规范
 
-你的真实飞书 CLI 只需要适配下面这组命令即可：
+> 先确保安装并登录飞书 CLI：`npx @larksuite/cli@latest install` → `npx @larksuite/cli@latest auth login`。
+
+你的真实飞书 CLI（larksuite-cli 或内部 wrapper）只需要适配下面这组命令即可：
 
 ```bash
 adapter task-get PX-123
@@ -135,9 +175,15 @@ adapter task-comment PX-123 "message"
 adapter prd-get PRD-2026-001
 ```
 
-所有命令应该返回 JSON。仓库里附带一个文件型 demo adapter，便于本地试跑。
+所有命令应该返回 JSON。仓库里附带一个文件型 demo adapter（`plugins/feishu-multirepo/scripts/demo_feishu_adapter.py`），便于本地试跑；接好真实 CLI 后，把 `.aiops.json` 里的 `feishu.adapter_command` 改成你的 wrapper 即可（参考 `examples/real-feishu-adapter.sh`）。
 
 ## CodeGraph
+
+先确认本机已安装 CodeGraph（见上方「前置依赖」）。验证：
+
+```bash
+codegraph --version
+```
 
 每个已有仓库建议先跑：
 

@@ -9,3 +9,4 @@
 - PRD → design → taskpool → claim → build → review → release skills.
 - Claude Code hooks for claim/path/preflight/evidence gates.
 - Published to GitHub: <https://github.com/yuebanhome/feishu-multirepo-agent-kit>.
+- Docs: document Lark CLI (`npx @larksuite/cli@latest install`) and CodeGraph (`install.sh` / `install.ps1`) as prerequisites.

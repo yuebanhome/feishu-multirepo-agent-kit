@@ -5,11 +5,28 @@ This plugin packages reusable Claude Code skills, subagents, and hooks for Feish
 The plugin itself is project-agnostic. Each workspace supplies `.aiops.json` to define repos, Feishu adapter, CodeGraph policy, and task-pool behavior.
 
 - Source: <https://github.com/yuebanhome/feishu-multirepo-agent-kit>
-- Marketplace install:
 
-  ```bash
-  claude plugin marketplace add yuebanhome/feishu-multirepo-agent-kit
-  claude plugin install feishu-multirepo@aiops-agent-kit --scope user
-  ```
+## Prerequisites
+
+Before installing the plugin, make sure these are on PATH:
+
+```bash
+# Feishu / Lark CLI
+npx @larksuite/cli@latest install
+npx @larksuite/cli@latest auth login
+
+# CodeGraph — macOS / Linux
+curl -fsSL https://raw.githubusercontent.com/colbymchenry/codegraph/main/install.sh | sh
+
+# CodeGraph — Windows (PowerShell)
+irm https://raw.githubusercontent.com/colbymchenry/codegraph/main/install.ps1 | iex
+```
+
+## Marketplace install
+
+```bash
+claude plugin marketplace add yuebanhome/feishu-multirepo-agent-kit
+claude plugin install feishu-multirepo@aiops-agent-kit --scope user
+```
 
 See the [top-level README](../../README.md) for full workspace setup, agents, skills, hooks, and Feishu adapter contract.
